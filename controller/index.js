@@ -33,8 +33,8 @@ const connect = async () => {
    console.log("Connected to Mongo's server");
    a = 'succeeded';
   })
-  .catch(err => console.log("Error connecting")
-    a = 'ko duoc'
+  .catch(err => {console.log("Error connecting")
+    a = 'ko duoc'}
    );
 }
 mongoose.connection.on("disconnected", () =>{
