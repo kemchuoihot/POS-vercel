@@ -6,27 +6,10 @@ const {validationResult} = require('express-validator');
 const signupValidator = require('./validator/signupValidator');
 const midAdd = require('../middleware/login');
 const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
 const sendEmail = require('../api/sender');
 
 router.get('/', (req, res) => {
-    const uri = "mongodb+srv://thinhpx33:thinhea33@pos.eofalwt.mongodb.net/?retryWrites=true&w=majority";
-    const connect = async () => {
-    mongoose.connect(uri)
-    .then(()=>{
-    console.log("Connected to Mongo's server");
-    })
-    .catch(err => console.log("Error connecting")
-    );
-    }
-    mongoose.connection.on("disconnected", () =>{
-    res.send("Disconnected from Mongo");
-    })
-    mongoose.connection.on("connected", () =>{
-    res.send("MongoDB is connected");
-    })
-
-
+    res.send("Staff page");
 });
 router.post('/',midAdd,signupValidator,async (req,res) =>{
     try {
