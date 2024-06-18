@@ -13,6 +13,7 @@ const productsRoutes = require('./routes/product')
 const changePass = require('./routes/changePass');
 const order = require('./routes/order');
 
+var a = ' ';
 const app = express();
 
 // const corsOptions = {
@@ -30,6 +31,7 @@ const connect = async () => {
   mongoose.connect(uri)
   .then(()=>{
    console.log("Connected to Mongo's server");
+   a = 'succeeded';
   })
   .catch(err => console.log("Error connecting")
    );
@@ -41,7 +43,7 @@ mongoose.connection.on("connected", () =>{
   console.log("MongoDB is connected");
 })
 app.get('/', (req, res) =>
-  res.send('Hello World!')
+  res.send(a)
 );
 // app.use('/', (req, res, next) => {
 //   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
