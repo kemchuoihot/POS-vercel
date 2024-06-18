@@ -23,7 +23,7 @@ const app = express();
 // };
 
 // app.use(cors(corsOptions));
-// app.use(express.json());
+app.use(express.json());
 
 const uri = process.env.MONGO;
 const connect = async () => {
@@ -41,12 +41,12 @@ mongoose.connection.on("connected", () =>{
   console.log("MongoDB is connected");
 })
 
-app.use('/', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.use('/', (req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
 
 app.use("/account", accountRoutes);
