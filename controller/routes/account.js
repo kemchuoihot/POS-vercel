@@ -9,7 +9,15 @@ const jwt = require('jsonwebtoken');
 const sendEmail = require('../api/sender');
 
 router.get('/', (req, res) => {
-    res.send("Staff page")
+
+mongoose.connection.on("disconnected", () =>{
+  res.send("Disconnected from Mongo");
+})
+mongoose.connection.on("connected", () =>{
+  res.send("MongoDB is connected");
+})
+
+
 });
 router.post('/',midAdd,signupValidator,async (req,res) =>{
     try {
