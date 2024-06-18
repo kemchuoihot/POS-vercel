@@ -25,7 +25,7 @@ const app = express();
 // app.use(cors(corsOptions));
 app.use(express.json());
 
-const uri = process.env.MONGO;
+const uri = "mongodb+srv://thinhpx33:thinhea33@pos.eofalwt.mongodb.net/?retryWrites=true&w=majority";
 const connect = async () => {
   mongoose.connect(uri)
   .then(()=>{
@@ -47,6 +47,7 @@ mongoose.connection.on("connected", () =>{
 //   res.header('Access-Control-Allow-Headers', 'Content-Type');
 //   next();
 // });
+
 
 
 app.use("/account", accountRoutes);
