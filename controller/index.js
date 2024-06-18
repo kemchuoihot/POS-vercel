@@ -13,7 +13,7 @@ const productsRoutes = require('./routes/product')
 const changePass = require('./routes/changePass');
 const order = require('./routes/order');
 
-var a = ' ';
+var a = 'chua';
 const app = express();
 
 // const corsOptions = {
@@ -34,6 +34,7 @@ const connect = async () => {
    a = 'succeeded';
   })
   .catch(err => console.log("Error connecting")
+    a = 'ko duoc'
    );
 }
 mongoose.connection.on("disconnected", () =>{
