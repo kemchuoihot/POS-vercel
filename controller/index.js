@@ -50,14 +50,14 @@ app.use('/', (req, res, next) => {
 
 
 app.use("/account", accountRoutes);
-// app.use("/auth", authRoutes);
-// app.use("/verify",verifyRoutes);
-// app.use("/home",homeRoutes);
-// app.use("/android",androidRoutes);
-// app.use("/customer", customerRoutes);
-// app.use("/order",order)
-// app.use("/product",productsRoutes);
-// app.use("/changePass",changePass);
+app.use("/auth", authRoutes);
+app.use("/verify",verifyRoutes);
+app.use("/home",homeRoutes);
+app.use("/android",androidRoutes);
+app.use("/customer", customerRoutes);
+app.use("/order",order)
+app.use("/product",productsRoutes);
+app.use("/changePass",changePass);
 
 app.use(cors());
 
