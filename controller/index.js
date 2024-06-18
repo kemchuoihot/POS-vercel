@@ -15,15 +15,15 @@ const order = require('./routes/order');
 
 const app = express();
 
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  optionsSuccessStatus: 204,
-};
+// const corsOptions = {
+//   origin: 'http://localhost:3000',
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   credentials: true,
+//   optionsSuccessStatus: 204,
+// };
 
-app.use(cors(corsOptions));
-app.use(express.json());
+// app.use(cors(corsOptions));
+// app.use(express.json());
 
 const uri = process.env.MONGO;
 const connect = async () => {
@@ -50,25 +50,25 @@ app.use('/', (req, res, next) => {
 
 
 app.use("/account", accountRoutes);
-app.use("/auth", authRoutes);
-app.use("/verify",verifyRoutes);
-app.use("/home",homeRoutes);
-app.use("/android",androidRoutes);
-app.use("/customer", customerRoutes);
-app.use("/order",order)
-app.use("/product",productsRoutes);
-app.use("/changePass",changePass);
+// app.use("/auth", authRoutes);
+// app.use("/verify",verifyRoutes);
+// app.use("/home",homeRoutes);
+// app.use("/android",androidRoutes);
+// app.use("/customer", customerRoutes);
+// app.use("/order",order)
+// app.use("/product",productsRoutes);
+// app.use("/changePass",changePass);
 
 app.use(cors());
 
-if(process.env.NODE_ENV === 'production'){
-  const path = require('path');
-  app.use(express.static('client/build'));
-  app.use('/', express.static(path.join(__dirname, 'client', 'build')));
-  app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'client','build','index.html'));
-  })
-}
+// if(process.env.NODE_ENV === 'production'){
+//   const path = require('path');
+//   app.use(express.static('client/build'));
+//   app.use('/', express.static(path.join(__dirname, 'client', 'build')));
+//   app.get('*',(req,res)=>{
+//     res.sendFile(path.join(__dirname,'client','build','index.html'));
+//   })
+// }
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
