@@ -51,7 +51,7 @@ mongoose.connection.on("connected", () => {
   console.log("MongoDB is connected");
 });
 app.get('/', (req, res) =>
-  res.send(a)
+  res.send('oke')
 );
 app.use('/', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'https://pos-vercel-frontend.vercel.app');
