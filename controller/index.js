@@ -25,7 +25,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-const uri = "mongodb+srv://pos-test:thinhea33@pos.eofalwt.mongodb.net/?retryWrites=true&w=majority&appName=POS";
+const uri = process.env.MONGO;
 const connect = async () => {
   try {
     await mongoose.connect(uri);
