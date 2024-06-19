@@ -26,17 +26,17 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 const uri = process.env.MONGO;
-const connect = async () => {
-  try {
-    await mongoose.connect(uri);
-    console.log("Connected to MongoDB server");
-    a = 'succeeded';
-  } catch (error) {
-    console.log("Error connecting to MongoDB:", error);
-    a = 'ko duoc';
-  }
-};
-
+// const connect = async () => {
+//   try {
+//     await mongoose.connect(uri);
+//     console.log("Connected to MongoDB server");
+//     a = 'succeeded';
+//   } catch (error) {
+//     console.log("Error connecting to MongoDB:", error);
+//     a = 'ko duoc';
+//   }
+// };
+mongoose.connect(uri);
 mongoose.connection.on("disconnected", () => {
   console.log("Disconnected from MongoDB");
 });
@@ -78,7 +78,7 @@ app.use(cors());
 // }
 
 const port = process.env.PORT || 5000;
-connect();
+// connect();
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
