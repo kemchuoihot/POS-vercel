@@ -13,7 +13,6 @@ const productsRoutes = require('./routes/product')
 const changePass = require('./routes/changePass');
 const order = require('./routes/order');
 
-var a = 'chua';
 const app = express();
 
 const corsOptions = {
