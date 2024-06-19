@@ -30,7 +30,7 @@ const Signup = () => {
         setLoading(true);
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:5000/auth", {username,password})
+            const response = await axios.post("pos-vercel-server.vercel.app/auth", {username,password})
             .then((result) => {
                 console.log(result);
                 const res = result.data;
