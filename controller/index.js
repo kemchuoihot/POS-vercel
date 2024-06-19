@@ -17,7 +17,7 @@ var a = 'chua';
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'pos-vercel-server.vercel.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
@@ -47,12 +47,12 @@ mongoose.connection.on("connected", () => {
 app.get('/', (req, res) =>
   res.send(a)
 );
-app.use('/', (req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.use('/', (req, res, next) => {
+//   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
 
 
@@ -68,17 +68,17 @@ app.use("/changePass",changePass);
 
 app.use(cors());
 
-if(process.env.NODE_ENV === 'production'){
-  const path = require('path');
-  app.use(express.static('client/build'));
-  app.use('/', express.static(path.join(__dirname, 'client', 'build')));
-  app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'client','build','index.html'));
-  })
-}
+// if(process.env.NODE_ENV === 'production'){
+//   const path = require('path');
+//   app.use(express.static('client/build'));
+//   app.use('/', express.static(path.join(__dirname, 'client', 'build')));
+//   app.get('*',(req,res)=>{
+//     res.sendFile(path.join(__dirname,'client','build','index.html'));
+//   })
+// }
 
 const port = process.env.PORT || 5000;
+connect();
 app.listen(port, () => {
-  connect();
   console.log(`http://localhost:${port}`);
 });
