@@ -37,7 +37,7 @@ const Employee = () => {
     },[]);
 
     const fetchData = () => {
-        axios.get('http://localhost:5000/auth/employee')
+        axios.get('https://pos-vercel-server.vercel.app/auth/employee')
         .then(result =>{
             if(result.data.Status){
                 setEmployee(result.data.employee);
